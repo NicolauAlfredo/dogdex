@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Basic document metadata -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DogDex | The Dog Pokédex</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <!-- Header navigation -->
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#home">🐶 DogDex</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainMenu"
+          aria-controls="mainMenu"
+          aria-expanded="false"
+          aria-label="Open navigation menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="mainMenu" class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#breeds">Breeds</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#favorites">
+                Favorites
+                <span id="favoritesCount" class="badge text-bg-warning ms-1">
+                  0
+                </span>
+              </a>
+            </li>
+
+            <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+              <button id="themeToggle" class="btn btn-outline-dark btn-sm">
+                Dark mode
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Main JavaScript module -->
+    <script type="module" src="./js/main.js" defer></script>
+  </body>
+</html>
