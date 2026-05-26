@@ -107,6 +107,63 @@
       </div>
     </header>
 
+    <main>
+      <!-- Breeds section -->
+      <section id="breeds" class="section-padding bg-light">
+        <div class="container">
+          <!-- Featured random dog -->
+          <div id="dogOfTheDay" class="dog-of-day mb-5"></div>
+
+          <div class="section-heading text-center mb-5">
+            <span class="badge text-bg-dark mb-3">Breeds</span>
+
+            <h2 class="fw-bold">Explore the DogDex</h2>
+
+            <p class="text-secondary">
+              Search for a breed and browse cards loaded dynamically from the
+              API.
+            </p>
+          </div>
+
+          <!-- Search input -->
+          <div class="row justify-content-center mb-4">
+            <div class="col-md-8 col-lg-6">
+              <input
+                id="searchInput"
+                type="search"
+                class="form-control form-control-lg"
+                placeholder="Search by breed..."
+                aria-label="Search by breed"
+              />
+            </div>
+          </div>
+
+          <!-- Filter controls -->
+          <div class="d-flex justify-content-center gap-2 flex-wrap mb-4">
+            <button class="btn btn-warning fw-semibold" data-filter="all">
+              All
+            </button>
+
+            <button
+              class="btn btn-outline-dark fw-semibold"
+              data-filter="favorites"
+            >
+              Favorites
+            </button>
+          </div>
+
+          <!-- Dynamic dog cards -->
+          <div id="dogsGrid" class="row g-4"></div>
+
+          <!-- Pagination control -->
+          <div class="text-center mt-5">
+            <button id="loadMoreButton" class="btn btn-dark btn-lg fw-semibold">
+              Load more breeds
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
