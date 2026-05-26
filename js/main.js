@@ -50,6 +50,8 @@ async function init() {
     renderDogOfTheDay();
     renderFavorites();
     updateFavoritesCount();
+
+    updateProjectAge();
   } catch (error) {
     console.error(error);
 
@@ -343,6 +345,29 @@ function updateOpenModal(dog) {
   if (!dogDetailsModalBody.innerHTML.trim()) return;
 
   dogDetailsModalBody.innerHTML = createDogDetailsModalContent(dog);
+}
+
+// Updates footer year dinamically
+// document.querySelector("#currentYear").textContent = new Date().getFullYear();
+
+/**
+ * Updates the project age in days.
+ */
+function updateProjectAge() {
+  // Project creation date
+  const projectStartDate = new Date("2026-05-22");
+
+  const today = new Date();
+
+  const difference = today - projectStartDate;
+
+  const daysPassed = Math.floor(difference / (1000 * 60 * 60 * 24));
+
+  const projectAgeElement = document.querySelector("#projectAge");
+
+  const dayLabel = daysPassed === 1 ? "day" : "days";
+
+  projectAgeElement.textContent = `This project has been evolving for ${daysPassed} ${dayLabel}.`;
 }
 
 // Event listeners
