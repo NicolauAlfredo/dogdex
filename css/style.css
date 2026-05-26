@@ -1,0 +1,398 @@
+/* Global design tokens used across the interface */
+:root {
+  --color-yellow: #ffcb05;
+  --color-dark: #1f2937;
+  --color-soft: #f8fafc;
+  --color-white: #ffffff;
+  --color-gray: #6b7280;
+  --color-footer: #111827;
+  --color-dark-bg: #0f172a;
+}
+
+/* Enables smooth navigation between internal page sections */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Defines the default typography and text color */
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color: var(--color-dark);
+}
+
+/* Hero area with soft gradient background and top spacing for fixed navbar */
+.hero-section {
+  padding-top: 72px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255, 203, 5, 0.35),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #ffffff 0%, var(--color-soft) 100%);
+}
+
+/* Decorative card used to highlight the main dog image */
+.hero-card {
+  max-width: 420px;
+  padding: 16px;
+  border-radius: 32px;
+  background: var(--color-white);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
+  transform: rotate(2deg);
+}
+
+/* Keeps the hero image square and visually consistent */
+.hero-image {
+  border-radius: 24px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Reusable vertical spacing for main page sections */
+.section-padding {
+  padding: 96px 0;
+}
+
+/* Limits text width for better readability */
+.section-heading {
+  max-width: 620px;
+  margin-inline: auto;
+}
+
+/* Main card component used to display each dog breed */
+.dog-card {
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--color-white);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Adds visual feedback when the user hovers a breed card */
+.dog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.14);
+}
+
+/* Preserves a square image area inside each card */
+.dog-card-image-wrapper {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+/* Ensures card images fill the available space without distortion */
+.dog-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Slight zoom effect for a more interactive card experience */
+.dog-card:hover .dog-card-image {
+  transform: scale(1.05);
+}
+
+.dog-card-body {
+  padding: 20px;
+}
+
+.dog-card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.dog-card-text {
+  color: var(--color-gray);
+  margin-bottom: 20px;
+}
+
+/* Small pill label used for breed metadata */
+.dog-badge {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 203, 5, 0.2);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* Circular button used to add or remove a breed from favorites */
+.favorite-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.08);
+  background: #e5e7eb;
+}
+
+.favorite-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Active favorite state */
+.favorite-btn.active {
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.favorite-btn.active .favorite-icon {
+  filter: invert(38%) sepia(96%) saturate(1852%) hue-rotate(337deg)
+    brightness(96%) contrast(97%);
+}
+
+/* Custom visual style for the Bootstrap dog details modal */
+.dog-modal {
+  border: none;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.dog-modal-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Pill tag used inside the modal details */
+.dog-tag {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 203, 5, 0.25);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Reusable layout for empty and error feedback messages */
+.empty-state,
+.error-state {
+  max-width: 520px;
+  margin-inline: auto;
+  padding: 48px 24px;
+  border-radius: 24px;
+  background: var(--color-white);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.empty-state h3,
+.error-state h3 {
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.empty-state p,
+.error-state p {
+  color: var(--color-gray);
+  margin-bottom: 0;
+}
+
+/* Highlights error messages with a subtle red border */
+.error-state {
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+/* Featured dog card displayed above the breeds list */
+.dog-of-day-card {
+  padding: 24px;
+  border-radius: 32px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255, 203, 5, 0.35),
+      transparent 35%
+    ),
+    var(--color-white);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.1);
+}
+
+.dog-of-day-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+/* Footer layout and link styling */
+.footer {
+  background: var(--color-footer);
+  color: var(--color-white);
+}
+
+.footer-logo {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-md-end;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-links a:hover {
+  color: var(--color-yellow);
+}
+
+.footer-line {
+  margin: 32px 0 24px;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Skeleton card shown while API data is loading */
+.skeleton-card {
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--color-white);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.skeleton-card-body {
+  padding: 20px;
+}
+
+/* Base skeleton placeholder style */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: #e5e7eb;
+}
+
+/* Animated shimmer effect for loading placeholders */
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  animation: skeleton-loading 1.4s infinite;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+}
+
+.skeleton-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.skeleton-badge {
+  width: 64px;
+  height: 28px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.skeleton-title {
+  width: 70%;
+  height: 28px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.skeleton-text {
+  width: 50%;
+  height: 18px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.skeleton-button {
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+}
+
+/* Moves the shimmer from left to right */
+@keyframes skeleton-loading {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Dark theme applied when the body receives the dark-mode class */
+.dark-mode {
+  background: var(--color-dark-bg);
+  color: var(--color-soft);
+}
+
+/* Overrides Bootstrap and custom components for dark mode */
+.dark-mode .navbar,
+.dark-mode .dog-card,
+.dark-mode .dog-of-day-card,
+.dark-mode .empty-state,
+.dark-mode .error-state,
+.dark-mode .modal-content {
+  background: #111827 !important;
+  color: var(--color-soft);
+}
+
+.dark-mode .hero-section,
+.dark-mode #breeds {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255, 203, 5, 0.18),
+      transparent 35%
+    ),
+    var(--color-dark-bg) !important;
+}
+
+.dark-mode .text-secondary {
+  color: #cbd5e1 !important;
+}
+
+.dark-mode .nav-link,
+.dark-mode .navbar-brand {
+  color: var(--color-soft) !important;
+}
+
+.dark-mode .form-control {
+  background: #1f2937;
+  color: var(--color-white);
+  border-color: #374151;
+}
+
+.dark-mode .form-control::placeholder {
+  color: #94a3b8;
+}
+
+.dark-mode .favorite-btn {
+  background: #1f2937;
+}
+
+.dark-mode .dog-badge,
+.dark-mode .dog-tag {
+  color: var(--color-soft);
+}
